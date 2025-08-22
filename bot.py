@@ -30,11 +30,11 @@ def send_message(text: str):
 
 def get_suvichar():
     try:
-        # Example using Quotable API
-        resp = requests.get("https://api.quotable.io/random", timeout=10)
+        # ✅ ZenQuotes API
+        resp = requests.get("https://zenquotes.io/api/random", timeout=10)
         if resp.status_code == 200:
-            data = resp.json()
-            return f"🌞 Aaj ka Suvichar:\n\n{data['content']}\n— {data['author']}"
+            data = resp.json()[0]
+            return f"🌞 Aaj ka Suvichar:\n\n{data['q']}\n— {data['a']}"
         else:
             return "🙏 Aaj ka suvichar uplabdh nahi hai."
     except Exception as e:
@@ -47,7 +47,7 @@ def job_send_suvichar():
 
 def start_scheduler():
     scheduler = BackgroundScheduler(timezone="Asia/Kolkata")
-    scheduler.add_job(job_send_suvichar, "cron", hour=23, minute=32)  # Daily 10:00 AM
+    scheduler.add_job(job_send_suvichar, "cron", hour=10, minute=0)  # Daily 10:00 AM
     scheduler.start()
     print("[SCHEDULER] Started - Suvichar job set at 10:00 AM IST")
 
