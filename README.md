@@ -17,8 +17,8 @@ UptimeRobot can be used to keep the bot always alive by pinging the `/` endpoint
 
 ### 1. Clone this repo
 ```
-git clone https://github.com/yourusername/suvichar-bot.git
-cd suvichar-bot
+git clone https://github.com/harshit0069/telegram_suvichar.git
+cd telegram_suvichar
 ```
 
 2. Install dependencies
