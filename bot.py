@@ -31,7 +31,7 @@ def send_message(text: str):
 def get_suvichar():
     try:
         # Example using Quotable API
-        resp = requests.get("https://api.quotable.io/random?tags=wisdom", timeout=10)
+        resp = requests.get("https://api.quotable.io/random", timeout=10)
         if resp.status_code == 200:
             data = resp.json()
             return f"🌞 Aaj ka Suvichar:\n\n{data['content']}\n— {data['author']}"
@@ -47,7 +47,7 @@ def job_send_suvichar():
 
 def start_scheduler():
     scheduler = BackgroundScheduler(timezone="Asia/Kolkata")
-    scheduler.add_job(job_send_suvichar, "cron", hour=23, minute=24)  # Daily 10:00 AM
+    scheduler.add_job(job_send_suvichar, "cron", hour=23, minute=32)  # Daily 10:00 AM
     scheduler.start()
     print("[SCHEDULER] Started - Suvichar job set at 10:00 AM IST")
 
