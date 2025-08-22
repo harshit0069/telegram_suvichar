@@ -47,7 +47,7 @@ def job_send_suvichar():
 
 def start_scheduler():
     scheduler = BackgroundScheduler(timezone="Asia/Kolkata")
-    scheduler.add_job(job_send_suvichar, "cron", hour=23, minute=23)  # Daily 10:00 AM
+    scheduler.add_job(job_send_suvichar, "cron", hour=23, minute=24)  # Daily 10:00 AM
     scheduler.start()
     print("[SCHEDULER] Started - Suvichar job set at 10:00 AM IST")
 
